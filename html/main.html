@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar with levels -->
+    <div class="sidebar">
+        <h4 ></h4>
+        <ul id="level-list">
+            <li><a href="#" data-level="first">first</a></li>
+            <li><a href="#" data-level="second">second</a></li>
+            <li><a href="#" data-level="third">third</a></li>
+            <li><a href="#" data-level="fourth">fourth</a></li>
+            <li><a href="#" data-level="fifth">fifth</a></li>
+            <li><a href="#" data-level="sixth">sixth</a></li>
+            <li><a href="#" data-level="seventh">seventh</a></li>
+        </ul>
+        <button class="suggestion-btn">Have a suggestion?</button>
+    </div>
+    
+    <!-- Main content section -->
+    <div class="main-content">
+        <h2>computer science</h2>
+        <div class="resources">
+            <button class="resource-btn" data-resource="Book">Book</button>
+            <button class="resource-btn" data-resource="Slides">Slides</button>
+            <button class="resource-btn" data-resource="Tutorial">Tutorial</button>
+            <button class="resource-btn" data-resource="Extra Resources">Extra Resources</button>
+        </div>
+
+        <!-- Section to display content dynamically -->
+        <div id="content-display" class="content-display">
+            Please select a level and a resource.
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
