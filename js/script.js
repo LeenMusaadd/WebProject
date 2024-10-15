@@ -1,14 +1,43 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     const loginIcon = document.getElementById('img2');
-//     const messageBox = document.querySelector('.hover-message');
+document.addEventListener('DOMContentLoaded', () => {
+    const levelList = document.getElementById('level-list');
+    const resourceButtons = document.querySelectorAll('.resource-btn');
+    const contentDisplay = document.getElementById('content-display');
+    
+    let selectedLevel = null;
+    let selectedResource = null;
 
-//     // Show the message box on mouse enter
-//     loginIcon.addEventListener('mouseenter', () => {
-//         messageBox.style.display = 'block';
-//     });
+    // Function to update the display content
+    function updateContent() {
+        if (selectedLevel && selectedResource) {
+            contentDisplay.textContent = `You selected ${selectedLevel} level and the resource is ${selectedResource}.`;
+        } else {
+            contentDisplay.textContent = 'Please select a level and a resource.';
+        }
+    }
 
-//     // Hide the message box on mouse leave
-//     loginIcon.addEventListener('mouseleave', () => {
-//         messageBox.style.display = 'none';
-//     });
-// });
+    // Add click event listener for level selection
+    levelList.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            // Remove active class from all level links
+            document.querySelectorAll('.sidebar ul li a').forEach(item => {
+                item.classList.remove('active');
+            });
+            // Add active class to clicked level
+            e.target.classList.add('active');
+            selectedLevel = e.target.textContent;
+            updateContent();
+        }
+    });
+
+    // Add click event listener for resource buttons
+    resourceButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all resource buttons
+            resourceButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+            selectedResource = button.textContent;
+            updateContent();
+        });
+    });
+});
